@@ -14,9 +14,13 @@ COPY requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt
 
 
-# add run.py
+# add app.py
 COPY ./app.py /usr/src/app/app.py
 RUN chmod +x /usr/src/app/app.py
+
+# add functions.py
+COPY ./functions.py /usr/src/app/functions.py
+RUN chmod +x /usr/src/app/functions.py
 
 
 # run server
