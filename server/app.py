@@ -1,11 +1,10 @@
-from pprint import pprint
-
-from config import *
 from functions import *
-import requests
-from flask import Flask, render_template, request, flash, jsonify
+from flask import Flask, render_template, request
+
 
 app = Flask(__name__)
+
+host = 'http://10.0.20.126:8900/api/v1'
 
 
 @app.route("/")
