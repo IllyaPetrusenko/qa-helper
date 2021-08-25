@@ -11,5 +11,3 @@ services:
       - 5002:5002
     environment:
       - FLASK_ENV=development
-    networks:
-      - samplenetwork
