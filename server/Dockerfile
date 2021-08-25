@@ -22,6 +22,25 @@ RUN chmod +x /usr/src/app/app.py
 COPY ./functions.py /usr/src/app/functions.py
 RUN chmod +x /usr/src/app/functions.py
 
+# add templates
+COPY ./templates/1.html /usr/src/app/templates/1.html
+RUN chmod +x /usr/src/app/templates/1.html
+
+COPY ./templates/base.html /usr/src/app/templates/base.html
+RUN chmod +x /usr/src/app/templates/base.html
+
+COPY ./templates/index.html /usr/src/app/templates/index.html
+RUN chmod +x /usr/src/app/templates/index.html
+
+COPY ./templates/results.html /usr/src/app/templates/results.html
+RUN chmod +x /usr/src/app/templates/results.html
+
+COPY ./templates/srs.html /usr/src/app/templates/srs.html
+RUN chmod +x /usr/src/app/templates/srs.html
+
+# add stylesheet
+COPY ./static/css/style.css /usr/src/app/static/css/style.css
+RUN chmod +x /usr/src/app/static/css/style.css
 
 # run server
 CMD python /usr/src/app/app.py
