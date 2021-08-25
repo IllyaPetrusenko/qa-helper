@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt
 
 
 # add run.py
-COPY ./run.py /usr/src/app/app.py
+COPY ./app.py /usr/src/app/app.py
 RUN chmod +x /usr/src/app/app.py
 
 
