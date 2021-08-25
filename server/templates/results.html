@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Expenditure Item # {{ data.records.0.ocid }}</h3>
+ <div class="classification-content">
+     <span>Date published: {{ data.publishedDate }}</span>
+ </div>
+<h5>Main information:</h5>
+<div class="classification-content">
+    <span>EI Title: {{ data.records.0.compiledRelease.tender.title }}</span>
+</div>
+<div class="classification-content">
+    <span>EI Short Description: {{ data.records.0.compiledRelease.tender.description }}</span>
+</div>
+<h5>EI Classification:</h5>
+<div class="classification-content">
+
+    <div class="form-group">
+        <span>ID: {{ data.records.0.compiledRelease.tender.classification.id }}</span>
+    </div>
+    <div class="form-group">
+        <span>Description: {{ data.records.0.compiledRelease.tender.classification.description }}</span>
+    </div>
+    <div class="form-group">
+        <span>Scheme: {{ data.records.0.compiledRelease.tender.classification.scheme }}</span>
+    </div>
+</div>
+{% endblock %}

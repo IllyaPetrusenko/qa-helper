@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Создание статьи расходов {% endblock %}</h1>
+    <form method="post">
+    <div class="form-group">
+        <label for="tender_title">Title of Expenditure Item</label>
+        <input type="text" name="tender_title" placeholder="Input title"
+               class="form-control">
+        </input>
+    </div>
+    <div class="form-group">
+        <label for="tender_description">Short description</label>
+        <textarea name="tender_description" placeholder="Input description"
+                  class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="tender_classification">Classification: </label>
+        <select name="classification" class="form-content" required>
+            <option value="24600000-0">Goods</option>
+            <option value="76500000-8">Services</option>
+            <option value="45300000-0">Works</option>
+        </select>
+    </div>
+    <div class="group-periods">
+        <label>Information about planning:    </label>
+        <div class="form-group">
+            <label for="planning.budget.period.startDate">Start date: </label>
+            <input type="date" name="startDate" required>
+        </div>
+        <div class="form-group">
+            <label for="planning.budget.period.endDate">End date: </label>
+            <input type="date" name="endDate" required>
+        </div>
+    </div>
+    <div class="group-buyer-info">
+        <label>Information about buyer: </label>
+        <div class="form-group">
+            <label for="buyer.name">Buyer name</label>
+            <input type="text" name="buyer_name" placeholder="Input buyers name"
+               class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="buyer.identifier.id">Buyer identifier</label>
+            <input type="text" name="buyer_identifier_id" placeholder="Input buyers identifier"
+               class="form-control">
+        </div>
+        <div class="form-group">
+        <label for="buyer_identifier_scheme">Buyer scheme</label>
+        <input type="text" name="buyer_identifier_scheme" placeholder="Input buyers scheme"
+               class="form-control">
+    </div>
+        <div class="form-group">
+        <label for="buyer_identifier_legalName">Buyer legal name</label>
+        <input type="text" name="buyer_identifier_legalName" placeholder="buyer.legalName"
+               class="form-control">
+        </div>
+        <div class="form-group">
+        <label for="buyer_address_streetAddress">buyer.streetAddress</label>
+        <input type="text" name="buyer_address_streetAddress" placeholder="Input buyers street address"
+               class="form-control">
+    </div>
+        <div class="form-group">
+        <label for="buyer_adress_address_details_country_id">Buyers country</label>
+            <select name="country" >
+                <option value="none" selected>none</option>
+                <option value="MD">Moldova</option>
+                <option value="UK">Ukraine</option>
+            </select>
+        </div>
+        <div class="form-group">
+        <label for="buyer.adress.addressDetails.region.id">Buyers region</label>
+            <select name="region" >
+                <option value="none" selected>none</option>
+                <option value="0101000">mun.Chisinau</option>
+                <option value="0301000">mun.Balti</option>
+            </select>
+        </div>
+        <div class="form-group">
+        <label for="buyer.adress.addressDetails.locality.id">Buyers lacality name</label>
+            <select name="locality" >
+                <option value="none" selected>none</option>
+                <option value="0101000">mun.Chisinau</option>
+                <option value="0111000">or.Singera</option>
+            </select>
+        </div>
+        <div class="form-group">
+        <label for="buyer.contactPoint.name">Buyers contact point name</label>
+                    <input type="text" name="contact_point_name" placeholder="Input contact point name"
+               class="form-control">
+        </div>
+        <div class="form-group">
+        <label for="buyer.contactPoint.email">Buyers contact point name</label>
+                    <input type="text" name="contact_point_email" placeholder="Input contact point email"
+               class="form-control">
+        </div>
+        <div class="form-group">
+        <label for="buyer.contactPoint.phone">Buyers contact point phone</label>
+                    <input type="text" name="contact_point_phone" placeholder="Input contact point phone"
+               class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary submit">Submit</button>
+    </div>
+</form>
+<hr>
+{% endblock %}
