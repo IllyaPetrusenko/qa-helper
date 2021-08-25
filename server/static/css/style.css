@@ -120,3 +120,8 @@ a {
     padding-top: 2%;
     padding-bottom: 2%;
 }
+.alert-error {
+        padding: 8px;
+        background-color: red;
+        color: white;
+      }

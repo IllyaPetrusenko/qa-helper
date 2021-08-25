@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert-error">Error: {{ message }}</div>
+{% endfor %}
 <h3>Expenditure Item # {{ data.records.0.ocid }}</h3>
  <div class="classification-content">
      <span>Date published: {{ data.publishedDate }}</span>

@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% for message in get_flashed_messages() %}
+      <div class="alert-error">Error: {{ message }}</div>
+    {% endfor %}
     <h1>{% block title %} Добро пожаловать на вашу первую практику! {% endblock %}</h1>
     <p>В этом блоке мы научимся с Вами тестировать пользовательский интерфейс. </p>
     <p>Немного информации: </p>

@@ -54,6 +54,10 @@ def create_ei_env(host, token, x_operation_id, payload):
         'Content-Type': 'application/json'
     }, data=json.dumps(payload))
     kafka_message = get_message_from_kafka(x_operation_id)
+    # if 'errors' in kafka_message:
+    #     return kafka_message
+    # else:
+    print(kafka_message)
     ei_cpid = kafka_message['data']['ocid']
     return ei_cpid
 
