@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% for message in get_flashed_messages() %}
+      <div class="alert-error">Error: {{ message.errors.0.description }}</div>
+    {% endfor %}
     <h1>{% block title %} Создание статьи расходов {% endblock %}</h1>
     <form method="post">
     <div class="form-group">
-        <label for="tender_title">Title of Expenditure Item</label>
+        <label for="tender_title">Title</label>
         <input type="text" name="tender_title" placeholder="Input title"
-               class="form-control">
-        </input>
+               class="form-control" required>
     </div>
     <div class="form-group">
         <label for="tender_description">Short description</label>
@@ -15,22 +17,27 @@
                   class="form-control"></textarea>
     </div>
     <div class="form-group">
-        <label for="tender_classification">Classification: </label>
-        <select name="classification" class="form-content" required>
+        <label for="planning_rationale">Rationale: </label>
+        <input type="text" class="form-control" name="planning_rationale">
+    </div>
+    <div class="form-group">
+        <label for="tender_classification">Tender classification: </label>
+        <select name="classification" class="select-label" required>
             <option value="24600000-0">Goods</option>
             <option value="76500000-8">Services</option>
             <option value="45300000-0">Works</option>
         </select>
     </div>
+    <label>Planning period:    </label>
     <div class="group-periods">
-        <label>Information about planning:    </label>
-        <div class="form-group">
-            <label for="planning.budget.period.startDate">Start date: </label>
-            <input type="date" name="startDate" required>
+
+        <div class="form-group-1">
+            <label for="planning_budget_period_startDate">Start date: </label>
+            <input type="date" name="startDate" class="date_picker" required>
         </div>
-        <div class="form-group">
-            <label for="planning.budget.period.endDate">End date: </label>
-            <input type="date" name="endDate" required>
+        <div class="form-group-1">
+            <label for="planning_budget_period_endDate">End date: </label>
+            <input type="date" name="endDate" class="date_picker" required>
         </div>
     </div>
     <div class="group-buyer-info">
@@ -62,7 +69,7 @@
     </div>
         <div class="form-group">
         <label for="buyer_adress_address_details_country_id">Buyers country</label>
-            <select name="country" >
+            <select name="country" class="select-label">
                 <option value="none" selected>none</option>
                 <option value="MD">Moldova</option>
                 <option value="UK">Ukraine</option>
@@ -70,7 +77,7 @@
         </div>
         <div class="form-group">
         <label for="buyer.adress.addressDetails.region.id">Buyers region</label>
-            <select name="region" >
+            <select name="region" class="select-label">
                 <option value="none" selected>none</option>
                 <option value="0101000">mun.Chisinau</option>
                 <option value="0301000">mun.Balti</option>
@@ -78,7 +85,7 @@
         </div>
         <div class="form-group">
         <label for="buyer.adress.addressDetails.locality.id">Buyers lacality name</label>
-            <select name="locality" >
+            <select name="locality" class="select-label">
                 <option value="none" selected>none</option>
                 <option value="0101000">mun.Chisinau</option>
                 <option value="0111000">or.Singera</option>

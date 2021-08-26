@@ -1,6 +1,5 @@
 from functions import *
-from flask import Flask, render_template, request
-
+from flask import Flask, render_template, request, flash
 
 app = Flask(__name__)
 
@@ -65,8 +64,13 @@ def create_ei():
         access_token = get_access_token(host)
         x_operation_id = get_x_operation_id(host=host, token=access_token)
         ei = create_ei_env(host=host, token=access_token, x_operation_id=x_operation_id, payload=payload)
-        data = get_ei_release(host=host, cpid=ei)
-        return render_template('results.html', data=data)
+        if 'errors' in ei:
+            flash(ei, 'error')
+            return render_template('1.html')
+        else:
+            data = get_ei_release(host=host, cpid=ei)
+            flash('EI was successfully created!', 'success')
+            return render_template('results.html', data=data)
     else:
         return render_template('1.html')
 

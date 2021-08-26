@@ -54,12 +54,11 @@ def create_ei_env(host, token, x_operation_id, payload):
         'Content-Type': 'application/json'
     }, data=json.dumps(payload))
     kafka_message = get_message_from_kafka(x_operation_id)
-    # if 'errors' in kafka_message:
-    #     return kafka_message
-    # else:
-    print(kafka_message)
-    ei_cpid = kafka_message['data']['ocid']
-    return ei_cpid
+    if 'errors' in kafka_message:
+        return kafka_message
+    else:
+        ei_cpid = kafka_message['data']['ocid']
+        return ei_cpid
 
 
 # Get release
@@ -73,4 +72,3 @@ def get_ei_release(host, cpid):
     url = f'{public_point}{cpid}'
     public_point_data = requests.get(url=url).json()
     return public_point_data
-
